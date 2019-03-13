@@ -1,0 +1,40 @@
+"-------検索------
+nnoremap / :<C-u>action Find<CR>
+set ignorecase
+set smartcase
+set regexsearch
+set hlsearch
+"
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+
+"-------Format------
+"自動インデントを有効化する
+set smartindent
+set autoindent
+
+" 対応する括弧やブレースを表示
+set showmatch matchtime=1
+
+" メッセージ表示欄を2行確保
+set cmdheight=2
+
+" ステータス行を常に表示
+set laststatus=2
+
+" ウィンドウの右下にまだ実行していない入力中のコマンドを表示
+set showcmd
+
+" 省略されずに表示
+set display=lastline
+
+" 行末のスペースを可視化
+set listchars=tab:^\ ,trail:~
+
+"-------Key Map------
+
+" ヤンクした文字列で置換
+nnoremap ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+
+" フォーマット
+nnoremap = :action ReformatCode<CR>
+vnoremap = :action ReformatCode<CR>
